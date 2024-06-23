@@ -15,7 +15,10 @@ const errorMessage = document.querySelector(".error-message");
 
 let allIngredients;
 
-// Fonction pour afficher les recettes filtrées
+/**
+ * @brief Fonction pour afficher les recettes filtrées
+ * @param {*} filteredRecipes
+ */
 export const showRecipes = (filteredRecipes) => {
   errorMessage.textContent = "";
   updateNbRecettes.textContent = filteredRecipes.length;
@@ -37,7 +40,10 @@ export const showRecipes = (filteredRecipes) => {
   }
 };
 
-// Fonction pour mettre à jour les filtres des menus déroulants
+/**
+ * @brief Fonction pour mettre à jour les filtres en fonction des recettes filtrées
+ * @param {*} filteredRecipes
+ */
 const updateFilters = (filteredRecipes) => {
   const allIngredients = [];
 
@@ -84,7 +90,10 @@ const updateFilters = (filteredRecipes) => {
   dropdownAppareills.updateDOM();
 };
 
-// Fonction pour fermer tous les menus déroulants sauf celui spécifié
+/**
+ * @brief Fonction pour fermer tous les menus déroulants sauf celui passé en paramètre
+ * @param {*} dropDown
+ */
 function closeAllDropDown(dropDown) {
   if (dropDown !== dropdownAppareills) {
     dropdownAppareills.close();
@@ -97,7 +106,9 @@ function closeAllDropDown(dropDown) {
   }
 }
 
-// Fonction principale
+/**
+ * @brief Fonction principale pour l'initialisation des écouteurs d'événements et la gestion des filtres
+ */
 function main() {
   // Écouteurs d'événements pour ouvrir les menus déroulants au clic
   dropdownIngredients.buttonElement.addEventListener("click", () => {
@@ -222,7 +233,9 @@ function main() {
     updateFilters(newTabFilter);
   };
 
-  // Fonction de recherche pour filtrer les recettes en fonction de la saisie dans la barre de recherche principal.
+  /**
+   * @brief Fonction pour la barre de recherche
+   */
   const searchBar = () => {
     const inputSearchBar = document.querySelector(".search-bar");
     const iconeClose = document.querySelector(".icone-close");
